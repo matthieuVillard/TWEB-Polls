@@ -1,9 +1,9 @@
 <div class="title">Create Poll</div>
-<div id="main" class="container">
-  <form class="form" name="form" (submit)="onSubmit()" novalidate>
-    <md-card>
+<div id="main" class="container poll">
+  <md-card>
+  <form class="form" name="form" novalidate>
       <div class="md-header">
-        <textarea placeholder="Question" class="full-width" rows="2" name="title" [(ngModel)]="poll.title" ngRequired></textarea>
+        <textarea placeholder="Question" class="full-width" rows="2" name="title" [(ngModel)]="poll.question" ngRequired></textarea>
       </div>
       <md-card-content>
         <table>
@@ -14,15 +14,15 @@
               <button *ngIf="!f" md-mini-fab class="remove" (click)="removeAnswer(answer)"><md-icon>remove</md-icon></button>
             </td>
             <td>
-              <input type="radio" name="correct" value="{{poll.correct}}" [(ngModel)]="poll.correct">
+              <input type="radio" name="correct" value="{{correct}}" [(ngModel)]="correct">
             </td>
           </tr>
         </table>
       </md-card-content>
-      <md-card-actions>
-        <button (click)="this._router.navigateByUrl('/')" class="cancel">Cancel</button>
-        <button type="submit" class="save">Save</button>
-      </md-card-actions>
-    </md-card>
   </form>
+  <md-card-actions>
+    <button (click)="this._router.navigateByUrl('/')" class="cancel">Cancel</button>
+    <button (click)="onSubmit()" class="save">Save</button>
+  </md-card-actions>
+  </md-card>
 </div>

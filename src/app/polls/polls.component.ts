@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {PollModel} from "./poll.model";
+import {PollModel} from "./question.model";
 import {log} from "util";
 import {AnswerModel} from "./answer.model";
 import {Router} from "@angular/router";

@@ -1,37 +1,30 @@
 <div class="title">Poll details</div>
 <div id="main" class="container poll">
-  <form *ngIf="id != undefined && isOpen" class="form">
+  <div *ngIf="poll != undefined && poll != null">
     <md-card>
       <md-card-header>
-        <md-card-title><h3>{{poll.title}}</h3></md-card-title>
+        <md-card-title><h3>{{poll.question}}</h3></md-card-title>
       </md-card-header>
-      <md-card-content>
-        <div *ngFor="let answer of poll.answers">
-          <input type="radio" name="valid" value="{{answer}}">
+      <md-card-content *ngIf="isOpen">
+        <div *ngFor="let answer of poll.answers, let i = index" class="answer">
+          <div style="background: none;" class="progress">{{answer}}</div>
+          <div class="progressLbl"></div>
         </div>
       </md-card-content>
+      <md-card-content *ngIf="!isOpen">
+        <div *ngFor="let answer of poll.answers, let i = index" class="answer">
+          <div *ngIf="answers[i] != undefined" [style.width]="answers[i] + '%'" class="progress">{{answer}}</div>
+          <div *ngIf="answers[i] == undefined" style="background: none;" class="progress">{{answer}}</div>
+          <div *ngIf="answers[i] != undefined" class="progressLbl">{{answers[i] + '%'}}</div>
+          <div *ngIf="answers[i] == undefined" class="progressLbl"></div>
+        </div>
+      </md-card-content>
+
       <md-card-actions>
-        <button (click)="unknown()" class="I don't know">Cancel</button>
-        <button (click)="onSubmit()" type="submit" class="save">Answer</button>
+        <div class="number">{{total}} answers</div>
+        <button *ngIf="isOpen" (click)="stop()" class="stop">Stop</button>
+        <button *ngIf="!isOpen" (click)="start()" class="start">Start</button>
       </md-card-actions>
     </md-card>
-  </form>
-
-  <md-card *ngIf="id == undefined || !isOpen">
-    <md-card-header>
-      <md-card-title><h3>{{poll.title}}</h3></md-card-title>
-    </md-card-header>
-    <md-card-content>
-      <div *ngFor="let answer of poll.answers, let i = index" class="answer">
-        <div [style.width]="answers[i] + '%'" class="progress">{{answer}}</div>
-        <div class="progressLbl">{{answers[i] + '%'}}</div>
-      </div>
-      {{id}}
-    </md-card-content>
-    <md-card-actions *ngIf="id == undefined">
-      <div class="number">{{total}} answers</div>
-      <button *ngIf="isOpen" (click)="stop()" class="stop">Stop</button>
-      <button *ngIf="!isOpen" (click)="start()" class="start">Start</button>
-    </md-card-actions>
-  </md-card>
+  </div>
 </div>

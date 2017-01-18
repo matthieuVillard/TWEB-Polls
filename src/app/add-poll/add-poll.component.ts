@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {PollModel} from "../polls/poll.model";
+import {PollModel} from "../polls/question.model";
 import {PollService} from "./poll.service";
 import {Router} from "@angular/router";
 
@@ -11,6 +11,7 @@ import {Router} from "@angular/router";
 })
 export class AddPollComponent implements OnInit {
   poll : PollModel;
+  correct : string;
 
 
   constructor(private _router: Router,  private _pollSevice: PollService) {
@@ -28,13 +29,17 @@ export class AddPollComponent implements OnInit {
   ngOnInit() {
     if(this._pollSevice.getPoll() != null){
       this.poll = this._pollSevice.getPoll();
+      this.correct = this.poll.correct.toString();
+      console.log(this.correct);
     }
     else{
-      this.poll = new PollModel('', [''], '0');
+      this.poll = new PollModel('', [''], 0);
+      this.correct = '0';
     }
   }
 
   onSubmit() {
+    this.poll.correct = parseInt(this.correct);
     this._pollSevice.addPoll(this.poll);
     this._router.navigateByUrl('/');
   }

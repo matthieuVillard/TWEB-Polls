@@ -1,8 +1,8 @@
 import {AnswerModel} from "./answer.model";
 export class PollModel {
   constructor(
-    public title: string,
+    public question: string,
     public answers: string[],
-    public correct: string
+    public correct: number
   ) {  }
 }

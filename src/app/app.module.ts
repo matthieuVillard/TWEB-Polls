@@ -10,13 +10,15 @@ import { MaterialModule } from '@angular/material';
 import { PollsComponent } from './polls/polls.component';
 import { AddPollComponent } from './add-poll/add-poll.component';
 import { PollComponent } from './poll/poll.component';
+import { RoomComponent } from './room/room.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PollsComponent,
     AddPollComponent,
-    PollComponent
+    PollComponent,
+    RoomComponent
   ],
   imports: [
     MaterialModule.forRoot(),

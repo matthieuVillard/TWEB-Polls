@@ -1,0 +1,36 @@
+<div class="title">Poll details</div>
+<div id="main" class="container poll">
+  <div *ngIf="poll != undefined && poll != null">
+    <form *ngIf="isOpen" class="form">
+      <md-card>
+        <md-card-header>
+          <md-card-title><h3>{{poll.question}}</h3></md-card-title>
+        </md-card-header>
+        <md-card-content>
+          <div *ngFor="let answer of poll.answers, let i = index">
+            <input type="radio" name="correct" value="{{i}}" [(ngModel)]="selected">{{answer}}
+          </div>
+        </md-card-content>
+        <md-card-actions>
+          <button (click)="unknown()" class="I don't know">Cancel</button>
+          <button (click)="onSubmit()" type="submit" class="save">Answer</button>
+        </md-card-actions>
+      </md-card>
+    </form>
+    <md-card *ngIf="!isOpen">
+      <md-card-header>
+        <md-card-title><h3>{{poll.question}}</h3></md-card-title>
+      </md-card-header>
+      <md-card-content>
+        <div *ngFor="let answer of poll.answers, let i = index" class="answer">
+          <div [style.width]="answers[i] + '%'" class="progress">{{answer}}</div>
+          <div class="progressLbl">{{answers[i] + '%'}}</div>
+        </div>
+      </md-card-content>
+      <md-card-actions>
+        <div class="number">{{total}} answers</div>
+      </md-card-actions>
+    </md-card>
+  </div>
+
+</div>

@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import {PollsComponent} from "./polls/polls.component";
 import {AddPollComponent} from "./add-poll/add-poll.component";
 import {PollComponent} from "./poll/poll.component";
+import {RoomComponent} from "./room/room.component";
 
 @NgModule({
   imports: [
@@ -12,7 +13,7 @@ import {PollComponent} from "./poll/poll.component";
       { path: 'addPoll', component: AddPollComponent},
       { path: 'poll', component: PollComponent},
       { path: '', component: PollsComponent },
-      { path: 'room/:id', component: PollComponent }
+      { path: 'room/:id', component: RoomComponent }
     ])
   ],
   exports: [

@@ -6,46 +6,46 @@
     width: 100%;
 }
 
-form textarea{
+.poll textarea{
     min-height: 0;
     background-color: white;
 }
 
-form input{
+.poll input{
     background-color: white;
 }
 
-form table{
+.poll table{
     border-spacing: 5px;
     border-collapse: separate;
 }
 
-form td{
+.poll td{
     vertical-align: middle;
 }
 
-form md-card-content{
+.poll md-card-content{
     padding: 24px;
     border-bottom: 1px solid rgba(0,0,0,.12);
     border-top: 1px solid rgba(0,0,0,.12);
     margin: 0;
 }
 
-form md-card-actions{
+.poll md-card-actions{
     padding: 24px;
     margin: 0;
     text-align: right;
 }
 
-form md-card{
+.poll md-card{
     padding: 0;
 }
 
-form md-card-content{
+.poll md-card-content{
     background-color: rgba(0,0,0,.05);
 }
 
-form .md-header{
+.poll .md-header{
     padding: 24px;
 }
 

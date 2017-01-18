@@ -7,7 +7,7 @@
         <md-card-content>
             <table>
                 <tr *ngFor="let poll of polls" class="answer" class="poll">
-                    <td width="98%" class="poll"><h2 (click)="pollDetails(poll)">{{poll.title}}</h2></td>
+                    <td width="98%" class="poll"><h2 (click)="pollDetails(poll)">{{poll.question}}</h2></td>
                     <td width="1%" style="position: relative;">
                         <button md-mini-fab class="edit" (click)="editPoll(poll)"><md-icon>mode_edit</md-icon></button>
                     </td>

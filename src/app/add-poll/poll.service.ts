@@ -1,11 +1,12 @@
 import { Injectable }     from '@angular/core';
-import {PollModel} from "../polls/poll.model";
+import {PollModel} from "../polls/question.model";
 
 
 @Injectable()
 export class PollService {
   private static poll: PollModel;
   private static polls: PollModel[] = [];
+  private static roomId : string;
 
 /**
  * constructor
@@ -41,5 +42,13 @@ export class PollService {
     if(PollService.polls.indexOf(poll) != -1){
       PollService.polls.splice(PollService.polls.indexOf(poll), 1);
     }
+  }
+
+  public setRoomId(roomId : string){
+    PollService.roomId = roomId;
+  }
+
+  public getRoomId() : string {
+    return PollService.roomId;
   }
 }
