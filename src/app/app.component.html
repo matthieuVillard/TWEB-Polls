@@ -1,0 +1,25 @@
+<!-- Intro -->
+<div id="intro-wrapper" class="wrapper style1" style="padding-top: 4em;">
+    <section id="intro" class="container">
+        <header class="style1" style="padding-top: 1em;">
+            <h1>TWEB-Polls</h1>
+            <h2>Url: </h2>
+            <p class="style1" style="margin-top: 0; color: inherit; font-size: 1em;">
+                The best way to get back row's attention</p>
+        </header>
+        <p class="style3">Get real-time feedback from the classroom, in a fun and involving way!</p>
+        <ul class="actions">
+            <li>
+                <a *ngIf="this._router.url === '/'"
+                        (click)="this._router.navigateByUrl('/addPoll')" class="button style3 big">Create Poll&trade;</a>
+                <a *ngIf="this._router.url !== '/'"
+                        (click)="this._router.navigateByUrl('/')" class="button style3 big">Home&trade;</a>
+            </li>
+        </ul>
+    </section>
+</div>
+
+<!-- Main -->
+<div class="wrapper style2">
+    <router-outlet></router-outlet>
+</div>

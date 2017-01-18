@@ -1,0 +1,75 @@
+.form {
+    width: 100%;
+}
+
+.full-width {
+    width: 100%;
+}
+
+form textarea{
+    min-height: 0;
+    background-color: white;
+}
+
+form input{
+    background-color: white;
+}
+
+form table{
+    border-spacing: 5px;
+    border-collapse: separate;
+}
+
+form td{
+    vertical-align: middle;
+}
+
+form md-card-content{
+    padding: 24px;
+    border-bottom: 1px solid rgba(0,0,0,.12);
+    border-top: 1px solid rgba(0,0,0,.12);
+    margin: 0;
+}
+
+form md-card-actions{
+    padding: 24px;
+    margin: 0;
+    text-align: right;
+}
+
+form md-card{
+    padding: 0;
+}
+
+form md-card-content{
+    background-color: rgba(0,0,0,.05);
+}
+
+form .md-header{
+    padding: 24px;
+}
+
+button.add{
+    background: #1f96f4;
+    color: white;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+button.remove{
+    position: absolute;
+    right: 4px;
+    top: 8px;
+    background: #ed6c5c;
+    color: white;
+}
+
+button.cancel{
+    background: white;
+    color: black;
+}
+
+button.save{
+    background: #1f96f4;
+    color: white;
+}

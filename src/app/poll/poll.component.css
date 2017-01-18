@@ -1,0 +1,58 @@
+.answer{
+    background: #ffc3ae;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    position: relative;
+}
+
+.progress{
+    background: #ff5d55;
+    padding: 10px;
+    color: white;
+}
+
+.progressLbl{
+    color: #b70f0a;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+}
+
+.poll md-card-content{
+    padding: 24px;
+    border-bottom: 1px solid rgba(0,0,0,.12);
+    border-top: 1px solid rgba(0,0,0,.12);
+    margin: 0;
+}
+
+.poll md-card-actions{
+    padding: 24px;
+    margin: 0;
+    text-align: right;
+    position: relative;
+}
+
+.poll md-card{
+    padding: 0;
+}
+
+.poll md-card-content{
+    background-color: rgba(0,0,0,.05);
+}
+
+.poll .md-header{
+    padding: 24px;
+}
+
+.poll button.start, .poll button.stop{
+    background: #1f96f4;
+    color: white;
+}
+
+.number{
+    position: absolute;
+    left: 24px;
+    top: 24px;
+}

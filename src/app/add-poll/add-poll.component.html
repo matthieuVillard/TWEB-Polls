@@ -1,0 +1,28 @@
+<div class="title">Create Poll</div>
+<div id="main" class="container">
+  <form class="form" name="form" (submit)="onSubmit()" novalidate>
+    <md-card>
+      <div class="md-header">
+        <textarea placeholder="Question" class="full-width" rows="2" name="title" [(ngModel)]="poll.title" ngRequired></textarea>
+      </div>
+      <md-card-content>
+        <table>
+          <tr *ngFor="let answer of poll.answers, let f = first, let i = index" class="answer">
+            <td width="1%"><button md-fab class="add" (click)="addAnswer()"><md-icon>add</md-icon></button></td>
+            <td width="99%" style="position: relative;">
+              <input type="text" placeholder="Answer" name="answer_{{i}}" [(ngModel)]="poll.answers[i]" ngRequired/>
+              <button *ngIf="!f" md-mini-fab class="remove" (click)="removeAnswer(answer)"><md-icon>remove</md-icon></button>
+            </td>
+            <td>
+              <input type="radio" name="correct" value="{{poll.correct}}" [(ngModel)]="poll.correct">
+            </td>
+          </tr>
+        </table>
+      </md-card-content>
+      <md-card-actions>
+        <button (click)="this._router.navigateByUrl('/')" class="cancel">Cancel</button>
+        <button type="submit" class="save">Save</button>
+      </md-card-actions>
+    </md-card>
+  </form>
+</div>

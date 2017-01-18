@@ -1,0 +1,24 @@
+<div class="title">Polls</div>
+<div id="main" class="container polls">
+    <md-card>
+        <md-card-header>
+            <md-card-title><h3>List of Polls</h3></md-card-title>
+        </md-card-header>
+        <md-card-content>
+            <table>
+                <tr *ngFor="let poll of polls" class="answer" class="poll">
+                    <td width="98%" class="poll"><h2 (click)="pollDetails(poll)">{{poll.title}}</h2></td>
+                    <td width="1%" style="position: relative;">
+                        <button md-mini-fab class="edit" (click)="editPoll(poll)"><md-icon>mode_edit</md-icon></button>
+                    </td>
+                    <td width="1%" style="position: relative;">
+                        <button md-mini-fab class="remove" (click)="removePoll(poll)"><md-icon>remove</md-icon></button>
+                    </td>
+                </tr>
+            </table>
+        </md-card-content>
+        <md-card-actions>
+            <button (click)="addPoll()" class="add">Add</button>
+        </md-card-actions>
+    </md-card>
+</div>
