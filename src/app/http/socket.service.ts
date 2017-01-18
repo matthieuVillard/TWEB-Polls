@@ -9,7 +9,7 @@ import 'rxjs/add/operator/map'
 @Injectable()
 export class SocketService {
 
-    socket : $WebSocket;
+    private static socket : $WebSocket;
 
     /**
      * constructor
@@ -19,21 +19,25 @@ export class SocketService {
     }
 
     public getSocket(url : string) : $WebSocket {
-        if(this.socket != undefined && this.socket != null){
-            return this.socket;
+        if(SocketService.socket != undefined && SocketService.socket != null){
+            return SocketService.socket;
         }
-        return this.createSocket(url);
+        else{
+            return this.createSocket(url);
+        }
+
     }
 
     public createSocket(url : string) : $WebSocket {
-        this.close();
-        this.socket = new $WebSocket("ws://eventail.me:8000/" + url);
-        return this.socket;
+
+        SocketService.socket = new $WebSocket("ws://eventail.me:8000/" + url);
+        return SocketService.socket;
     }
 
     public close(){
-        if(this.socket != undefined && this.socket != null){
-            this.socket.close(false);
+        if(SocketService.socket != undefined && SocketService.socket != null){
+            SocketService.socket.close(false);
+            SocketService.socket = null;
         }
     }
 }

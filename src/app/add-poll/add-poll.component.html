@@ -7,7 +7,7 @@
       </div>
       <md-card-content>
         <table>
-          <tr *ngFor="let answer of poll.answers, let f = first, let i = index" class="answer">
+          <tr *ngFor="let answer of poll.answers; trackBy: identify; let f = first, let i = index" class="answer">
             <td width="1%"><button md-fab class="add" (click)="addAnswer()"><md-icon>add</md-icon></button></td>
             <td width="99%" style="position: relative;">
               <input type="text" placeholder="Answer" name="answer_{{i}}" [(ngModel)]="poll.answers[i]" ngRequired/>

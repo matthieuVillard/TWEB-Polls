@@ -10,7 +10,7 @@ import {SocketService} from "./http/socket.service";
 })
 export class AppComponent {
 
-  url : string = 'http://localhost:4200/room';
+  root : string = document.location.host;
   room : string;
   /**
    * constructor

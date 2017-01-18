@@ -21,6 +21,7 @@ export class PollComponent implements OnInit {
 
   constructor(private _pollSevice: PollService, private _socketService: SocketService) {
     this.poll = _pollSevice.getPoll();
+    _socketService.close();
   }
 
   ngOnInit() {
@@ -30,20 +31,21 @@ export class PollComponent implements OnInit {
   start(){
     this.isOpen = true;
     var data = "{\"label\":\"begin\", \"payload\":" + JSON.stringify(this.poll) + "}";
-    this._socketService.getSocket('room').send4Direct(data);
 
     this._socketService.getSocket('room/').getDataStream().subscribe(
         (msg)=> {
           console.log(msg.data);
           var json = JSON.parse(msg.data);
           if(json.label == 'STATE_UPDATED'){
-            var results = JSON.parse(msg.data.payload.results);
+            var results = JSON.parse(msg.data).payload.results;
             this.total = 0;
-            for(var i = 0; i < results.length; i++){
-              this.total += results[i];
+            if(this.total > 0) {
+              for (var i = 0; i < results.length; i++) {
+                this.answers[i] = results[i] / this.total * 100;
+              }
             }
-            for(var i = 0; i < results.length; i++){
-              this.answers[i] = results[i] / this.total * 100;
+            else{
+              this.answers = [];
             }
           }
         },
@@ -54,6 +56,9 @@ export class PollComponent implements OnInit {
           console.log("complete");
         }
     );
+
+   debugger;
+    this._socketService.getSocket('room').send4Direct(data);
   }
 
   stop(){

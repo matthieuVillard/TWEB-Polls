@@ -44,4 +44,8 @@ export class AddPollComponent implements OnInit {
     this._router.navigateByUrl('/');
   }
 
+  identify(index, item){
+    return index;
+  }
+
 }
